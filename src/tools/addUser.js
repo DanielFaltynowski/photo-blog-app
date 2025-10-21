@@ -1,4 +1,4 @@
-const addUser = (user) => {
+const addUser = (user, albums) => {
     const id = document.querySelector('.id')
     id.textContent = user.id
     
@@ -43,6 +43,14 @@ const addUser = (user) => {
     
     const companyName = document.querySelector('.company-name')
     companyName.textContent = user.company.name
+
+    const albumsBox = document.querySelector('.albums')
+    albums.forEach((a) => {
+        const album = document.createElement('a')
+        album.textContent = a.title
+        album.href = `http://127.0.0.1:5500/src/album/album.html?id=${a.id}`
+        albumsBox.append(album)
+    })
 }
 
 export { addUser }

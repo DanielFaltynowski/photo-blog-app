@@ -16,9 +16,15 @@ const addPost = (posts, user, post) => {
     postBody.classList.add('post-body')
     postBody.textContent = post.body
 
+    const postComments = document.createElement('a')
+    postComments.classList.add('post-comments')
+    postComments.textContent = 'See Comments'
+    postComments.href = `http://127.0.0.1:5500/src/comments/comments.html?id=${post.id}`
+
     postBox.append(postUser)
     postBox.append(postTitle)
     postBox.append(postBody)
+    postBox.append(postComments)
 
     posts.prepend(postBox)
 }
