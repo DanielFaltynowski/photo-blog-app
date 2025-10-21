@@ -1,13 +1,12 @@
-import { getData } from './getData.js'
-
-const addPost = (posts, post) => {
-    const postBox = document.createElement('div')
+const addPost = (posts, user, post) => {
+    const postBox = document.createElement('p')
     postBox.classList.add('post-box')
+    postBox.style.border = 'solid'
 
-    const postUser = document.createElement('div')
+    const postUser = document.createElement('a')
     postUser.classList.add('post-user')
-    postUser.textContent = post.userId
-
+    postUser.textContent = user.username
+    postUser.href = `http://127.0.0.1:5500/src/user/user.html?id=${user.id}`
 
     const postTitle = document.createElement('div')
     postTitle.classList.add('post-title')

@@ -1,4 +1,4 @@
-const getData = (endpoint) => {
+const getData = async (endpoint) => {
     return new Promise((resolve, reject) => {
         const request = new XMLHttpRequest()
         
