@@ -1,6 +1,15 @@
 const getData = async (endpoint) => {
+    // ===== Asynchronous function must return a promise =====
+
     return new Promise((resolve, reject) => {
+        // ===== Creating request object =====
+
         const request = new XMLHttpRequest()
+
+        // =====
+
+
+        // ===== Setting response due to the ready state status change ===== 
 
         request.addEventListener('readystatechange', (event) => {
             if (request.readyState === 4 && request.status === 200) {
@@ -10,9 +19,18 @@ const getData = async (endpoint) => {
             }
         })
 
+        // =====
+
+
+        // ===== Sending request =====
+
         request.open('GET', endpoint)
         request.send()
+
+        // =====
     })
+
+    // =====
 }
 
 export { getData }

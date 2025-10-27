@@ -1,7 +1,55 @@
+// ===== Imports =====
+
 import { getData } from '../tools/getData.js'
+import { showPost } from '../tools/showPost.js'
 
-const posts = []
+// =====
 
-getData('https://jsonplaceholder.typicode.com/posts')
-.then((data) => console.log(data))
-.catch((error) => console.log(error))
+
+// ===== Query Selectors =====
+
+const contentLoading = document.querySelector('.content-loading')
+const contentReady = document.querySelector('.content-ready')
+const posts = document.querySelector('.posts')
+
+// =====
+
+
+const dataPosts = []
+const dataUsers = []
+const dataPostsProcessed = []
+const dataUsersProcessed = {}
+
+
+await getData('https://jsonplaceholder.typicode.com/posts')
+.then((data) => {
+    dataPosts.push(...data)
+})
+.catch((error) => {
+    console.log(error)
+})
+
+await getData('https://jsonplaceholder.typicode.com/users')
+.then((data) => {
+    dataUsers.push(...data)
+})
+.catch((error) => {
+    console.log(error)
+})
+
+dataUsers.forEach((user) => {
+    dataUsersProcessed[user.id] = user
+})
+
+dataPosts.forEach((post) => {
+    const postProcessed = post
+    postProcessed.username = dataUsersProcessed[post.userId].username
+    dataPostsProcessed.push(postProcessed)
+})
+
+dataPostsProcessed.forEach((post) => {
+    showPost(posts, post)
+})
+
+contentLoading.style.display = 'none'
+contentReady.style.display = 'block'
