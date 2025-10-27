@@ -15,12 +15,17 @@ const posts = document.querySelector('.posts')
 // =====
 
 
+// ===== Data =====
+
 const dataPosts = []
 const dataUsers = []
 const dataPostsProcessed = []
 const dataUsersProcessed = {}
 
+// =====
 
+
+// ===== Collecting data =====
 await getData('https://jsonplaceholder.typicode.com/posts')
 .then((data) => {
     dataPosts.push(...data)
@@ -37,6 +42,11 @@ await getData('https://jsonplaceholder.typicode.com/users')
     console.log(error)
 })
 
+// =====
+
+
+// ===== Processing data =====
+
 dataUsers.forEach((user) => {
     dataUsersProcessed[user.id] = user
 })
@@ -47,9 +57,16 @@ dataPosts.forEach((post) => {
     dataPostsProcessed.push(postProcessed)
 })
 
+// =====
+
+
+// ===== Displaying data to the feed =====
+
 dataPostsProcessed.forEach((post) => {
     showPost(posts, post)
 })
 
 contentLoading.style.display = 'none'
 contentReady.style.display = 'block'
+
+// =====
