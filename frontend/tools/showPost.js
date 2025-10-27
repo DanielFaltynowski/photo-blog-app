@@ -28,7 +28,7 @@ const showPost = (posts, postObject) => {
     
     const postCommentsButton = document.createElement('a')
     postCommentsButton.textContent = 'See Comments'
-    postCommentsButton.href = '#'
+    postCommentsButton.href = `http://127.0.0.1:5500/frontend/comments/index.html?postId=${postObject.id}`
     
     const postUserButton = document.createElement('a')
     postUserButton.textContent = 'See User\'s Profile'
