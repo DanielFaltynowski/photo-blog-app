@@ -19,9 +19,7 @@ const showComment = (comments, commentObject) => {
 
 
     // ===== Appending created content to the post =====
-    comment.append(commentName)
-    comment.append(commentEmail)
-    comment.append(commentBody)
+    comment.append(commentName, commentEmail, commentBody)
 
 
     // ===== Appending completed post to the posts list =====

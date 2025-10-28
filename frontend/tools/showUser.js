@@ -1,4 +1,6 @@
 const showUser = (user, userObj) => {
+    user.id = userObj.id
+
     const userName = document.createElement('div')
     userName.textContent = `Name: ${userObj.name}`
     userName.classList.add('user-name')
