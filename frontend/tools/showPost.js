@@ -1,15 +1,11 @@
 const showPost = (posts, postObject) => {
     // ===== Creating new post =====
-
     const post = document.createElement('p')
     post.classList.add('post')
     post.id = postObject.id
-
-    // =====
     
 
     // ===== Creating post content =====
-
     const postUsername = document.createElement('div')
     postUsername.classList.add('post-username')
     postUsername.textContent = postObject.username
@@ -33,12 +29,9 @@ const showPost = (posts, postObject) => {
     const postUserButton = document.createElement('a')
     postUserButton.textContent = 'See User\'s Profile'
     postUserButton.href = `http://127.0.0.1:5500/frontend/user/index.html?userId=${postObject.userId}`
-
-    // =====
     
 
     // ===== Appending created content to the post =====
-
     post.append(postUsername)
     post.append(postId)
     post.append(postTitle)
@@ -46,14 +39,9 @@ const showPost = (posts, postObject) => {
     post.append(postCommentsButton)
     post.append(postUserButton)
 
-    // =====
-    
 
     // ===== Appending completed post to the posts list =====
-
     posts.prepend(post)
-
-    // =====
 }
 
 export { showPost }

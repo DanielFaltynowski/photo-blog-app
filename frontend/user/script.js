@@ -1,23 +1,16 @@
 // ===== Imports =====
-
 import { getData } from '../tools/getData.js'
 import { showUser } from '../tools/showUser.js'
 import { showAlbum } from '../tools/showAlbum.js'
 import { showTodo } from '../tools/showTodo.js'
 
-// =====
-
 
 // ===== URL Params =====
-
 const params = new URLSearchParams(window.location.search)
 const userId = parseInt(params.get('userId'))
 
-// =====
-
 
 // ===== Query Selectors =====
-
 const contentLoading = document.querySelector('.content-loading')
 const contentReady = document.querySelector('.content-ready')
 const contentError = document.querySelector('.content-error')
@@ -25,22 +18,15 @@ const user = document.querySelector('.user')
 const albums = document.querySelector('.albums')
 const todos = document.querySelector('.todos')
 
-// =====
-
-
 
 // ===== Data =====
-
 let isError = false
 let dataUser = {}
 const dataAlbums = []
 const dataTodos = []
 
-// =====
-
 
 // ===== Collecting data =====
-
 await getData('https://jsonplaceholder.typicode.com/users')
 .then((data) => {
     dataUser = data.filter((user) => user.id === userId)[0]
@@ -74,19 +60,23 @@ await getData('https://jsonplaceholder.typicode.com/todos')
     contentError.textContent = error
 })
 
-// =====
-
 
 if (!isError) {
+    // ===== Displaying user's data
     showUser(user, dataUser)
 
+
+    // Displaying user's albums
     dataAlbums.forEach((album) => {
         showAlbum(albums, album)
     })
 
+
+    // Displaying user's todo's
     dataTodos.forEach((todo) => {
         showTodo(todos, todo)
     })
+
 
     contentLoading.style.display = 'none'
     contentReady.style.display = 'block'
