@@ -32,7 +32,7 @@ const showPost = (posts, postObject) => {
     
     const postUserButton = document.createElement('a')
     postUserButton.textContent = 'See User\'s Profile'
-    postUserButton.href = '#'
+    postUserButton.href = `http://127.0.0.1:5500/frontend/user/index.html?userId=${postObject.userId}`
 
     // =====
     
