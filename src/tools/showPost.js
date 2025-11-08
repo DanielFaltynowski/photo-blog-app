@@ -21,12 +21,12 @@ const showPost = (posts, postObject) => {
     const postCommentsButton = document.createElement('a')
     postCommentsButton.textContent = 'See Comments'
     postCommentsButton.style.margin = '5px'
-    postCommentsButton.href = `http://127.0.0.1:5500/frontend/comments/index.html?postId=${postObject.id}`
+    postCommentsButton.href = `http://127.0.0.1:5500/src/comments/index.html?postId=${postObject.id}`
     
     const postUserButton = document.createElement('a')
     postUserButton.textContent = 'See User\'s Profile'
     postUserButton.style.margin = '5px'
-    postUserButton.href = `http://127.0.0.1:5500/frontend/user/index.html?userId=${postObject.userId}`
+    postUserButton.href = `http://127.0.0.1:5500/src/user/index.html?userId=${postObject.userId}`
     
 
     // ===== Appending created content to the post =====
