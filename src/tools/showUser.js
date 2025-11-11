@@ -1,6 +1,9 @@
 const showUser = (user, userObj) => {
+    // ===== Referring user =====
     user.id = userObj.id
 
+
+    // ===== Creating user content =====
     const userName = document.createElement('div')
     userName.textContent = `Name: ${userObj.name}`
     userName.classList.add('user-name')
@@ -53,6 +56,8 @@ const showUser = (user, userObj) => {
     userCompanyBs.textContent = `BS: ${userObj.company.bs}`
     userCompanyBs.classList.add('user-company-bs')
 
+
+    // ===== Appending created content to the user page =====
     user.append(
         userName,
         userUsername,
